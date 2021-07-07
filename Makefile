@@ -41,7 +41,7 @@ run/temp-cli:
 .PHONY: build/cli
 build/cli:
 	@echo 'Building ...'
-	@GOOS=linux GOARCH=amd64 go build -o=./bin/linux_amd64/cli ./cmd
+	@GOOS=linux GOARCH=amd64 go build -o=./bin/linux_amd64/${BIN_NAME} ./cmd
 	@echo 'Artifact ready !'
 
 # ==================================================================================== #
@@ -52,9 +52,9 @@ build/cli:
 .PHONY: run/cli
 run/cli:
 	@echo 'Running ...'
-	@./bin/linux_amd64/cli -msg=${COWSAY_MSG}
+	@./bin/linux_amd64/${BIN_NAME} -msg=${COWSAY_MSG}
 
 ## run/help: run the CLI help
 .PHONY: run/help
 run/help:
-	@./bin/linux_amd64/cli -h
+	@./bin/linux_amd64/${BIN_NAME} -h
